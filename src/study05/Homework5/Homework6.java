@@ -2,11 +2,11 @@ package study05.Homework5;
 
 import java.util.Scanner;
 
-public class gugudan {
+public class Homework6 {
 	Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		gugudan obj = new gugudan();
+		Homework6 obj = new Homework6();
 		//obj.method1(); // 입력된 수의 구구단 단수 출력
 		//obj.method2(); // 가로로 2단부터 9단까지 출력
 		obj.method3(); // 입력한 단수 빼고 출력
