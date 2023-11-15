@@ -7,8 +7,8 @@ public class Similarity {
 		String[] str2 = {"b", "c"};
 		int count = 0;
 		
-		boolean constraint1 = chk(str1, 1, 100, 1, 10);
-        boolean constraint2 = chk(str2, 1, 100, 1, 10);
+		boolean constraint1 = arrChk(str1, 100, 10);
+        boolean constraint2 = arrChk(str2, 100, 10);
         
         if(constraint1 && constraint2){
         	int str1Sz = str1.length;
@@ -29,18 +29,17 @@ public class Similarity {
 	 * 배열의 길이, 원소의 길이, 널 여부 검사
 	 * 
 	 * @param strArr       : 검사할 배열
-	 * @param arrMinSz     : 배열 최소 사이즈
 	 * @param arrMaxSz     : 배열 최대 사이즈
-	 * @param strAtomMinSz : 배열의 각 원소 문자열 최소 사이즈 1 이상
 	 * @param strAtomMaxSz : 배열의 각 원소 문자열 최대 사이즈
-	 * @return
+	 * @return 검사 완료 true, 검사 실패 false
+	 * @memo 
 	 */
-	public static boolean chk(String[] strArr, int arrMinSz, int arrMaxSz, int strAtomMinSz, int strAtomMaxSz) {
+	public static boolean arrChk(String[] strArr, int arrMaxSz, int strAtomMaxSz) {
 		
-		if (arrSizeChk(strArr, arrMinSz, arrMaxSz)) {
+		if (arrSizeChk(strArr, arrMaxSz)) {
 			int strArrSz = strArr.length;
 			for (int i = 0; i < strArrSz; i++) {
-				if(!arrAtomSizeChk(strArr[i], 1, 10)) {
+				if(!arrAtomSizeChk(strArr[i], 10)) {
 					return false;
 				}
 			}
@@ -50,13 +49,14 @@ public class Similarity {
 	}
 
 	/**
-	 * 문자열 배열의 최소 사이즈, 최대 사이즈, null 검사 
+	 * 문자열 배열의 최대 사이즈, null 검사 
 	 * @param strArr : 문자열 배열
-	 * @param arrMinSz : 문자열 배열 최소 사이즈 1 이상
 	 * @param arrMaxSz : 문자열 배열 최대 사이즈
-	 * @return
+	 * @return 검사 완료 true, 검사 실패 false
+	 * @memo arrMinSz 문자열 배열 최소 사이즈 1 이상
 	 */
-	public static boolean arrSizeChk(String[] strArr, int arrMinSz, int arrMaxSz) {
+	public static boolean arrSizeChk(String[] strArr, int arrMaxSz) {
+		int arrMinSz = 1; // 문자열 배열 최소 사이즈 1 이상
 		
 		if(strArr != null) {
 			int strArrSz = strArr.length;
@@ -68,13 +68,14 @@ public class Similarity {
 	}
 	
 	/**
-	 * 문자열 길이 체크 최소 사이즈, 최대사이즈, null 검사
+	 * 문자열 길이 체크 최대사이즈, null 검사
 	 * @param str : 문자열
-	 * @param strMinSz : 문자열 최소 사이즈 1 이상
 	 * @param strMaxSz : 문자열 최대 사이즈
-	 * @return
+	 * @return 검사 완료 true, 검사 실패 false
+	 * @memo strMinSz : 문자열 최소 사이즈 1 이상
 	 */
-	public static boolean arrAtomSizeChk(String str, int strMinSz, int strMaxSz) {
+	public static boolean arrAtomSizeChk(String str, int strMaxSz) {
+		int strMinSz = 1; // 문자열 길이 최소 사이즈
 		
 		if(str != null) {
 			int strSz = str.length();

@@ -38,24 +38,38 @@ public class ArrayExample08 {
 		s3.avg = s3.sum / 3.0;
 		s3.rank = 1;
 		
-		System.out.println(s1.toString());
-		System.out.println(s2.toString());
-		System.out.println(s3.toString());
+//		System.out.println(s1.toString());
+//		System.out.println(s2.toString());
+//		System.out.println(s3.toString());
 		
 		Student[] students = new Student[3];
 		students[0] = s1;
 		students[1] = s2;
 		students[2] = s3;
 		
-		for(int i = 0; i < students.length; i++) {
-			Student s = students[i];
-			System.out.println(s.name + "\t 수학 : " + s.math);
+//		for(int i = 0; i < students.length; i++) {
+//			Student s = students[i];
+//			System.out.println(s.name + "\t 수학 : " + s.math);
+//		}
+//		
+//		for(int i = 0; i < students.length; i++) {
+//			Student s = students[i];
+//			System.out.println(s.name + "\t 평균 : " + s.avg);
+//		}
+		
+		// 정렬
+		for(Student student1 : students) {
+			for(Student student2 : students) {
+				if(student1.sum < student2.sum) {
+					student1.rank++;
+				}
+			}
 		}
 		
-		for(int i = 0; i < students.length; i++) {
-			Student s = students[i];
-			System.out.println(s.name + "\t 평균 : " + s.avg);
+		for(Student student : students) {
+			System.out.println(student);
 		}
+		
 	}
 }// class end
 

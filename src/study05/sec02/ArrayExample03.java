@@ -7,10 +7,10 @@ public class ArrayExample03 {
 
 	public static void main(String[] args) {
 		ArrayExample03 obj = new ArrayExample03();
-		// obj.method1(); // 학생3명 과목 점수 저장 해보기
-		// obj.method2(); // 2차원 배열 사용
-		// obj.method3(); // 각각 출력 해보기
-		obj.method4(); //
+		//obj.method1(); // 학생3명 과목 점수 저장 해보기
+		//obj.method2(); // 2차원 배열 사용
+		obj.method3(); // 각각 출력 해보기
+		//obj.method4(); //
 	}
 
 	private void method4() {
@@ -36,6 +36,7 @@ public class ArrayExample03 {
 		// 1번째 학생 영어
 		// 2번째 학생 영어 수학점수
 		// 3번째 학생 국어점수 각각 출력 해보기
+		// 
 
 		int[] sScore1 = { 30, 45, 60, 0 };
 		int[] sScore2 = { 95, 85, 20, 0 };
@@ -67,7 +68,7 @@ public class ArrayExample03 {
 		// new : new연산자 객체 생성
 		// int[3][3] : 배열 크기 초기화
 		//
-		// 0 1 2 열
+		//         0 1 2   열
 		// 0번 라인 - [][][]
 		// 1번 라인 - [][][]
 		// 2번 라인 - [][][]
@@ -76,19 +77,24 @@ public class ArrayExample03 {
 		scores[0] = sScore1;
 		scores[1] = sScore2;
 		scores[2] = sScore3;
+		int scoresSz = scores.length;
 
 		// 총점 구하기
-		for (int i = 0; i < scores.length; i++) {
+		for (int i = 0; i < scoresSz; i++) {
 			int sum = 0;
-			for (int j = 0; j < scores[i].length; j++) {
+			int scoresAtmSz = scores[i].length;
+			
+			for (int j = 0; j < scoresAtmSz; j++) {
 				sum += scores[i][j];
 			}
 			scores[i][3] = sum;
 		}
 
 		// 출력하기
-		for (int i = 0; i < scores.length; i++) {
-			for (int j = 0; j < scores[i].length - 1; j++) {
+		for (int i = 0; i < scoresSz; i++) {
+			int scoresAtmSz = scores[i].length;
+			
+			for (int j = 0; j < scoresAtmSz - 1; j++) {
 				System.out.println(scores[i][j] + "\t");
 			}
 			System.out.println("평균 : " + scores[i][3] / 3.0);

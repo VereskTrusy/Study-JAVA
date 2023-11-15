@@ -53,6 +53,10 @@ public class Homework7 {
 					int[] temp = scores[j];
 					scores[j] = scores[j+1];
 					scores[j+1] = temp;
+					
+					String strTemp = name[j];
+					name[j] = name[j+1];
+					name[j+1] = strTemp;
 				}
 			}
 		}
